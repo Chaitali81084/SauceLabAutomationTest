@@ -23,3 +23,14 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+/// <reference types="cypress"/>
+
+import loginData from '../fixtures/login.json'
+Cypress.Commands.add('login', (username,password) => {
+        cy.visit('/')
+        cy.get('input[data-test="username"]').type(loginData.username)
+        cy.get('input[data-test="password"]').type(loginData.password)
+        cy.get('input[data-test="login-button"]').click()
+
+      })
