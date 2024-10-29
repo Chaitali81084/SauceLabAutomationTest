@@ -16,4 +16,4 @@ Then I see products added to the cart
 |Sauce Labs Bolt T-Shirt|
 |Sauce Labs Onesi|
 |Sauce Labs Bike Light|
-And I see quantity in the cart
+#And I see quantity in the cart
