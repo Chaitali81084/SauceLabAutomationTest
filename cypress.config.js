@@ -5,6 +5,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on('file:preprocessor',cucumber())
+    
     },
     specPattern: "cypress/e2e/UiTests/*.feature",
     baseUrl: "https://www.saucedemo.com/"
