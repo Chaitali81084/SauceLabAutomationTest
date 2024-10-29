@@ -8,6 +8,6 @@ module.exports = defineConfig({
     
     },
     specPattern: "cypress/e2e/UiTests/*.feature",
-    baseUrl: "https://www.saucedemo.com/"
+    baseUrl: "https://www.saucedemo.com"
   },
 });

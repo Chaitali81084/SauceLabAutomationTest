@@ -17,7 +17,7 @@ class Products {
   }
 
   addToCartButton() {
-    cy.get('[data-test="add-to-cart"]').click();
+    cy.get(".btn_primary").contains("ADD TO CART").click();
     return this;
   }
 

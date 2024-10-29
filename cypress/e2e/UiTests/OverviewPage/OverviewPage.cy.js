@@ -3,20 +3,23 @@ import yourInformation from "../../../support/pages/YourInformation/yourInformat
 import overview from "../../../support/pages/Overview/overview.cy";
 
 Then("I am on Checkout Overview Page", () => {
-  cy.contains('span[data-test="title"]', "Checkout: Overview");
+  cy.contains('.subheader', "Checkout: Overview");
 });
 
 Then(
   "I Verify all relevant details on the page with {string}",
   (productname) => {
-    overview.paymentDetails(productname);
+    overview.verifyOrderSummary(productname);
   }
 );
 
 Then("I click Finish button", () => {
-  overview.clickFinish();
+  overview.completePurchase();
 });
 
 And("I see {string}", (ordermessage) => {
-  cy.contains('h2[data-test="complete-header"]', ordermessage);
+    cy.get('.complete-header').should(
+        "contain.text",ordermessage);
+        
+      
 });

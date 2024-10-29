@@ -38,14 +38,6 @@ Before you begin, ensure you have the following installed on your machine:
 2. **Run Tests:**
    - From the Cypress Test Runner, can select individual tests to run.
 
-3. **View Results:**
-   - After running the tests, we can view the results directly in the Cypress interface.
-
 ## Assumptions
 - The tests are designed to run in a stable environment; any changes to the Sauce Demo website may affect test outcomes.
 
-
-## Limitations
-- **Known Issue**: 
-  - Cy.visit is not loading the web-page on test-runner for latest version
-  - To resolve this we need to close the test runner an reopen it my driving npx cypress open

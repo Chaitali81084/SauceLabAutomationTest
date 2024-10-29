@@ -8,7 +8,7 @@ class Menu {
   logout() {
     this.menuHeader();
     cy.wait(1000);
-    cy.get('[data-test="logout-sidebar-link"]').click();
+    cy.get('#logout_sidebar_link').click();
     return this;
   }
 }

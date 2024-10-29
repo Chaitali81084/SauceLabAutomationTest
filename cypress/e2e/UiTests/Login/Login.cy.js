@@ -3,7 +3,7 @@ import login from "../../../support/pages/LoginPage/loginPage.cy";
 /// <reference types="cypress"/>
 
 Given("user visit saucelabs website", () => {
-  cy.visit("/");
+  cy.visit("/v1/index.html");
 });
 
 And("user enters valid details", () => {

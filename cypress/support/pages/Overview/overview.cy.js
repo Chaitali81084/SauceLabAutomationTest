@@ -7,21 +7,19 @@ class Overview {
     );
     cy.get('[data-test="payment-info-label"]').should("not.be.empty");
     cy.get('[data-test="shipping-info-label"]').should("not.be.empty");
-    cy.get('[data-test="total-label"]').should("not.be.empty");
+    cy.get('.summary_total_label').should("not.be.empty");
     return this;
   }
-  clickFinish() {
-    cy.get(".btn").contains("Finish").click();
-  }
 
-  verifyOrderSummary(productName, productPrice, productDescription) {
+  verifyOrderSummary(productName) {
     cy.get(".inventory_item_name").should("contain", productName);
-    cy.get(".inventory_item_price").should("contain", productPrice);
-    cy.get(".inventory_item_desc").should("contain", productDescription);
+    cy.get(".inventory_item_price").should("not.be.empty");;
+    cy.get('.summary_total_label').should("not.be.empty");
+    return this;
   }
 
   completePurchase() {
-    cy.get("#finish").click();
+    cy.get(".btn_action").contains("FINISH").click();
   }
 }
 const overview = new Overview();

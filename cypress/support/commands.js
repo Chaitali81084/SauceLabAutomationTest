@@ -34,7 +34,7 @@ import customerDetails from "../fixtures/customerDetails.json";
 Cypress.Commands.add("login", (username, password) => {
   cy.get('input[data-test="username"]').type(loginData.username);
   cy.get('input[data-test="password"]').type(loginData.password);
-  cy.get('input[data-test="login-button"]').click();
+  cy.get(".btn_action").contains("LOGIN").click();
 });
 
 Cypress.Commands.add("checkOut", function (username, lastName, zipCode) {
@@ -55,7 +55,7 @@ Cypress.Commands.add("selectproduct", function (productname) {
   cy.get(".inventory_list").each(($el) => {
     if ($el.text().includes(productname)) {
       cy.get(".inventory_item_name").contains(productname).click();
-      cy.get('[data-test="add-to-cart"]').click();
+      cy.get(".btn_primary").contains("ADD TO CART").click();
       cy.go("back");
     }
   });

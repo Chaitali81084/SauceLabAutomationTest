@@ -14,7 +14,7 @@ class YourInformation {
   }
 
   clickContinue() {
-    cy.get('input[data-test="continue"]').click();
+    cy.get(".btn_primary").contains("CONTINUE").click();
   }
 }
 

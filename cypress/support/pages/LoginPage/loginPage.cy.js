@@ -6,7 +6,7 @@ class LoginPage {
     return this;
   }
   clickSubmitButton() {
-    cy.get('input[data-test="login-button"]').click();
+    cy.get(".btn_action").contains("LOGIN").click();
     return this;
   }
 

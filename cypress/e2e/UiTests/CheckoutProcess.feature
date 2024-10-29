@@ -14,7 +14,7 @@ And I click continue
 Then I am on Checkout Overview Page
 And I Verify all relevant details on the page with "<productname>"
 When I click Finish button
-Then I see "Thank you for your order!"
+Then I see "THANK YOU FOR YOUR ORDER"
 Then I logout
 
 Examples:

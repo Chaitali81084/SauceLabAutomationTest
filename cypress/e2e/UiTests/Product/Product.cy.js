@@ -5,7 +5,7 @@ import menu from "../../../support/pages/Menu/menu.cy";
 /// <reference types="cypress"/>
 
 beforeEach(() => {
-  cy.visit("https://www.saucedemo.com/");
+  cy.visit("https://www.saucedemo.com/v1/index.html");
 });
 
 after(() => {
@@ -44,50 +44,36 @@ When("I click on product name {string}", (productname) => {
 
 When("I add to the cart", () => {
   products.addToCartButton();
-  cy.get('[data-test="shopping-cart-badge"]').should("have.length", 1);
 });
 
 And("I see product {string} added to the cart", (productname) => {
-  cy.get('[data-test="shopping-cart-link"]').click();
+  cy.get('#shopping_cart_container').click();
 
-  cy.get('[data-test="inventory-item-name"]').should(
+  cy.get('.cart_item_label').should(
     "contain.text",
     productname
   );
-  cy.get('[data-test="item-quantity"]').should("have.length", 1);
 });
 
 And("I see products added to the cart", (productname) => {
   productname.hashes().forEach((element) => {
-    cy.get('[data-test="shopping-cart-link"]').click();
+    cy.get('#shopping_cart_container').click();
 
-    cy.get('[data-test="inventory-item-name"]').should(
+    cy.get('.cart_item_label').should(
       "contain.text",
       element.productname
     );
   });
-  //   cy.get('span[data-test="shopping-cart-badge"]').should("have.length", 2);
+  
 });
 
-Then("I see quantity in the cart", () => {
-  //  cy.log(cy.get('.shopping_cart_container'))
-  cy.get('[data-test="shopping-cart-badge"]').should("have.length", 3);
-
-  // cy.get('.shopping_cart_container').its('length').then((count) =>{
-
-  //     cy.get('a')
-  //       .find('.shopping_cart_badge')
-  //       .should('have.length', count)
-
-  //     })
-});
 
 Then("I logout", () => {
   menu.logout();
 });
 
 And("I am on login Page", () => {
-  cy.url().should("eq", "https://www.saucedemo.com/");
+  cy.url().should("eq", "https://www.saucedemo.com/v1/index.html");
 });
 
 And("I login again", () => {

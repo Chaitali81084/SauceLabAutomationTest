@@ -1,14 +1,13 @@
 /// <reference types ="cypress"/>
 class Cart {
   removeProduct() {
-    cy.get(".btn").contains("Remove").click();
+    cy.get(".btn_secondary").contains("REMOVE").click();
 
     return this;
   }
 
   checkoutButton() {
-    cy.get(".btn").contains("Checkout").click();
-
+    cy.get(".btn_action").contains("REMOVE").click();
     return this;
   }
 }
