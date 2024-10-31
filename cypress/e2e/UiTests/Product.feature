@@ -12,7 +12,6 @@ And I see product "<productname>" added to the cart
 Then I logout
 And I am on login Page
 
-
 Examples:
 |productname|
 |Sauce Labs Bolt T-Shirt|

@@ -11,7 +11,6 @@ And I see product "<productname>" added to the cart
 When I click remove button to remove product
 Then the cart is empty
 
-
 Examples:
 | productname |
 | Sauce Labs Bolt T-Shirt |

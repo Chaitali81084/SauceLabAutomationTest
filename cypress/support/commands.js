@@ -100,7 +100,6 @@ Cypress.Commands.add("checklowtohighpricesorting", () => {
     cy.log($elements);
     const orig_products = Array.from($elements).map((el) => el.innerText);
     const asc_sorted_products = Array.from($elements).map((el) => el.innerText);
-    cy.pause;
     let numberorig_products = [];
     let numberasc_sorted_products = [];
     for (let i = 0; i < orig_products.length; i++) {
@@ -129,7 +128,6 @@ Cypress.Commands.add("checkhightolowpricesorting", () => {
     cy.log($elements);
     const orig_products = Array.from($elements).map((el) => el.innerText);
     const asc_sorted_products = Array.from($elements).map((el) => el.innerText);
-    cy.pause;
     let numberorig_products = [];
     let numberasc_sorted_products = [];
     for (let i = 0; i < orig_products.length; i++) {
@@ -149,5 +147,20 @@ Cypress.Commands.add("checkhightolowpricesorting", () => {
         })
         .reverse()
     );
+  });
+});
+
+Cypress.Commands.add("validatePriceAtCheckout", () => {
+  cy.get(".inventory_item_price").then(($elements) => {
+    cy.log($elements);
+    const orig_products = Array.from($elements).map((el) => el.innerText);
+    let numberorig_products = [];
+    let numberasc_sorted_products = [];
+    for (let i = 0; i < orig_products.length; i++) {
+      orig_products[i] = orig_products[i].toString().replace("$", "");
+      numberorig_products.push(Number(orig_products[i]));
+    }
+    cy.log(numberorig_products[0]);
+    return cy.wrap(numberorig_products);
   });
 });

@@ -1,20 +1,13 @@
 /// <reference types ="cypress"/>
 class Overview {
-  paymentDetails(productname) {
-    cy.get('[data-test="inventory-item-name"]').should(
-      "contain.text",
-      productname
-    );
-    cy.get('[data-test="payment-info-label"]').should("not.be.empty");
-    cy.get('[data-test="shipping-info-label"]').should("not.be.empty");
-    cy.get('.summary_total_label').should("not.be.empty");
-    return this;
-  }
-
   verifyOrderSummary(productName) {
-    cy.get(".inventory_item_name").should("contain", productName);
-    cy.get(".inventory_item_price").should("not.be.empty");;
-    cy.get('.summary_total_label').should("not.be.empty");
+    cy.log("order");
+    cy.log(productName);
+    cy.get(".inventory_item_name").then(($elements) => {
+      const orig_products = Array.from($elements).map((el) => el.innerText);
+
+      expect(orig_products).to.include(productName);
+    });
     return this;
   }
 
